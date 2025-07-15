@@ -1,8 +1,15 @@
 # Theoretische Fragen
 
 ## Database & Backend
-1.
-2.
+1. Ich habe mit Hilfe von chatGPT erfahren, dass man einen normalen controller in Java 
+    verwendet wenn man HTML-Seiten zurückgeben will, während ein RestController eine 
+    Kombination aus einem controller und einem RestBody ist, diesen verwendet man wenn 
+    man nur Daten für zb eine REST API zurückgeben will (JSON, also für ein Backend das 
+    mit react redet, also wäre dieser RestController für das Event-Management-system gut)
+2. Da CORS auch für React und Express eine wichtige Sicherheitsrichtlinie des Browsers ist,
+    muss man auch hier regeln ob ein Browser Anfragen vom Frontend an das Backend auf andere 
+    Domains zulässt, dies macht man mit einer extra Konfigurationsklasse (hier gibt man die 
+    url aus dem Frontend an die 'erlaubt ist')
 
 ## Frontend & React
 1. Class components habe ich am Anfang mal genutzt und diese haben bestimmte Methoden, 
@@ -43,3 +50,10 @@
 
 
 ## Allgemein
+1. Ich würde testen ob die API die richtigen Daten liefert, ob es Fehler gibt wenn User ungültige 
+    Eingaben machen und alle Funktionen der App durchklicken. Aßerdem kann man Testdaten nutzen und 
+    automatische Test mit Maven oder GitHub Actions machen
+2. Beim Login, auf jeden Fall authetifizierung und autorisierung hinzufügen, Passwort mit zb Bcrypt hashen, 
+    CORS konfigurieren, user input validieren und Fehlermeldungen nicht ausgeben wenn es interne Fehler 
+    sind von der API. Auch Rate Limits schhützen die API-Endpunkte vor Brute Force Attaken. .env-Datein mit 
+    Zugangsdaten und Token sind ein guter schutz
