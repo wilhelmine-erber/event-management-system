@@ -5,48 +5,93 @@ import Button from './Button'
 export default function Login() {
 
     const navigate = useNavigate()
-
     const [isRegister, setIsRegister] = useState(false)
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
+    const [error, setError] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // TODO: hier login implementieren
+
+        if (email === '' || password === '') {
+            alert('please use test data to login')
+        }
+
+        // Testdaten
+        const testEmail = 'test@test.de'
+        const testPassword = '12345'
+
+        if (!isRegister) {
+            if (email === testEmail && password === testPassword) {
+                setError('')
+                navigate('/')
+            } else {
+                setError('failed login, please try test data')
+            }
+        } else {
+            console.log(`register data: ${name}, ${password}, ${email}`);
+            setError('')
+            setIsRegister(false)
+        }
     }
 
     return (
         <div className="mx-auto mt-16 w-full max-w-sm rounded-2xl bg-white p-8 shadow-xl">
-            <h2 className='text-2xl font-semibold m-4'>Login Page</h2>
             {/* only for TEST */}
-            <a className="link link-error" onClick={() => navigate('/')}>HOME</a>
+            <a className="link link-error text-red-400" onClick={() => navigate('/')}>HOME</a>
+
+            <h2 className='text-2xl font-semibold my-4'>{!isRegister ? 'Login' : 'Register'} Form</h2>
 
             <form className='space-y-4' onSubmit={handleSubmit}>
-                {isRegister && (
+                {!isRegister ? (
                     <div>
                         <label>Email</label>
-                        <input type="text" />
+                        <input
+                            type="text"
+                            className="w-full rounded-md border p-2"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} />
+
                         <label>Password</label>
-                        <input type="password" />
+                        <input
+                            type="password"
+                            className="w-full rounded-md border p-2"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)} />
+                    </div>
+                ) : (
+                    <div>
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            className="w-full rounded-md border p-2"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)} />
+
+                        <label>Email</label>
+                        <input
+                            type="text"
+                            className="w-full rounded-md border p-2"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} />
+
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            className="w-full rounded-md border p-2"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)} />
                     </div>
                 )}
-                <div>
-                    <label>Name</label>
-                    <input type="text" />
-                    <label>Email</label>
-                    <input type="text" />
-                    <label>Password</label>
-                    <input type="password" />
-                </div>
+
                 <Button>{isRegister ? 'create account' : 'login'}</Button>
             </form>
 
             <p className="mt-4 text-center text-sm">
-                {isRegister ? "Schon registriert?" : "Noch kein Konto?"}{" "}
-                <button
-                    onClick={() => setIsRegister(!isRegister)}
-                    className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-100 text-stone-400 hover:bg-stone-600 hover:text-stone-100"
-                >
-                    {isRegister ? "Hier einloggen" : "Registrieren"}
-                </button>
+                {isRegister ? "already registered?" : "no account yet?"}
+                <Button onClick={() => setIsRegister(!isRegister)}>{isRegister ? "login here" : "register here"}</Button>
             </p>
         </div>
     )
