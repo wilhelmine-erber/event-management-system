@@ -88,9 +88,30 @@ APIs
 
 - create new user (username, email, role)
 `POST http://localhost:8080/api/users`
+```json
+{
+  "username": "lisa",
+  "email": "lisa@example.com",
+  "role": "ORGANIZER"
+}
+```
 
 - get all events
 `GET http://localhost:8080/api/events`
 
 - create new events (title, description, date, location, maxParticipants, organizer)
 `POST http://localhost:8080/api/events`
+
+POST /api/events
+```json
+{
+  "title": "Tech Night",
+  "description": "Vorträge & Networking",
+  "date": "2025-08-10",
+  "location": "Berlin",
+  "maxParticipants": 100,
+  "organizer": {
+    "id": 1
+  }
+}
+```

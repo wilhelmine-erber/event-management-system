@@ -18,3 +18,6 @@ Event Entity:
 ●​ id, title, description, date, location, maxParticipants, organizerId
 EventRegistration Entity:
 ●​ id, userId, eventId, registrationDate'
+
+
+Prompt: 'wo trage ich die CORS konfiguration ein in einen java spring-boot backend?'

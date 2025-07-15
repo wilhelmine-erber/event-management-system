@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import EventList from './components/EventList'
 import Header from './components/Header'
 import CreateEvent from './components/CreateEvent'
 import NoEventListed from './components/NoEventListed'
 import EventDetail from './components/EventDetail'
+import { fetchAllEvents, createEvent } from './services/event'
 
 function App() {
 
@@ -12,6 +13,22 @@ function App() {
     slectedEventId: undefined,
     events: []
   })
+
+  // Data fetch from backend
+  useEffect(() => {
+    async function loadEvents() {
+      try {
+        const eventsFromServer = await fetchAllEvents()
+        setEventState(prev => ({
+          ...prev,
+          events: eventsFromServer
+        }))
+      } catch (error) {
+        console.error('Error by loading events:', error)
+      }
+    }
+    loadEvents()
+  }, [])
 
   // show form to create new event
   function handleStartAddEvent() {
@@ -23,22 +40,38 @@ function App() {
     })
   }
 
-  // create new event
-  function handleAddEvent(eventData) {
-    setEventState(prevState => {
-      const eventId = Math.random()
-      const newEvent = {
-        id: eventId,
-        ...eventData
-      }
+  // create new event only local
+  // function handleAddEvent(eventData) {
+  //   setEventState(prevState => {
+  //     const eventId = Math.random()
+  //     const newEvent = {
+  //       id: eventId,
+  //       ...eventData
+  //     }
 
-      return {
-        ...prevState,
+  //     return {
+  //       ...prevState,
+  //       slectedEventId: undefined,
+  //       events: [...prevState.events, newEvent]
+  //     }
+  //   })
+  // }
+
+  // create new event fetch backend (POST)
+  async function handleAddEvent(eventData) {
+    try {
+      const newEvent = await createEvent(eventData)
+
+      setEventState(prev => ({
+        ...prev,
         slectedEventId: undefined,
-        events: [...prevState.events, newEvent]
-      }
-    })
+        events: [...prev.events, newEvent]
+      }))
+    } catch (error) {
+      console.error('Error by creating new Event:', error)
+    }
   }
+
 
   // cancel create new event
   function onCancelAddEvent() {
