@@ -38,3 +38,17 @@
 
 
 #### setup backend
+- mit ChatGPT Schritt-fürSchritt Anleitung
+
+APIs
+- alle Benutzer abrufen 
+`GET http://localhost:8080/api/users`
+
+- neuen Benutzer erstellen (username, email, role)
+`POST http://localhost:8080/api/users`
+
+- alle events abrufen
+`GET http://localhost:8080/api/events`
+
+- neue events erstelen (title, description, date, location, maxParticipants, organizer)
+`POST http://localhost:8080/api/events`
