@@ -4,6 +4,7 @@ import EventList from './components/EventList'
 import Header from './components/Header'
 import CreateEvent from './components/CreateEvent'
 import NoEventListed from './components/NoEventListed'
+import EventDetail from './components/EventDetail'
 
 function App() {
 
@@ -27,7 +28,8 @@ function App() {
     setEventState(prevState => {
       const eventId = Math.random()
       const newEvent = {
-        id: eventId
+        id: eventId,
+        ...eventData
       }
 
       return {
@@ -48,9 +50,19 @@ function App() {
     })
   }
 
+  // select one Event to show details
+  function handleSelectEvent(id) {
+    setEventState(prevState => {
+      return {
+        ...prevState,
+        slectedEventId: id
+      }
+    })
+  }
 
+  const selectedEvent = eventState.events.find(eventItem => eventItem.id === eventState.slectedEventId)
 
-  let content;
+  let content = <EventDetail eventItem={selectedEvent} />
 
   if (eventState.slectedEventId === null) {
     content = <CreateEvent onAdd={handleAddEvent} onCancel={onCancelAddEvent} />
@@ -65,7 +77,10 @@ function App() {
       <Header />
 
       <main className='h-screen my-8 flex gap-8'>
-        <EventList events={eventState.events} />
+        <EventList
+          events={eventState.events}
+          onSelectedEvent={handleSelectEvent}
+          onStartAddEvent={handleStartAddEvent} />
         {content}
       </main>
 
