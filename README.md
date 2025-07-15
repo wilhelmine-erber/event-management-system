@@ -33,6 +33,10 @@
 
 
 #### setup frontend
+
+- a stupid error in nodeModules/vite/dist/node/chunks/dep-DZ2tZksn.js (replace `const hash = crypto.hash('sha256', 'test', 'hex');` with this: `const h$2 = crypto.createHash('sha256').update('test').digest('hex');`)
+- I found this solution here: https://blog.ni18.in/crypto-hash-is-not-a-function-error-in-javascript/
+
 - go to frontend `cd frontend`
 - start frontend `npm run dev`
 
