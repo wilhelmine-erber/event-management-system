@@ -7,11 +7,13 @@
 - user can see a list of all events
 - user can click on a event display details 
 
+
 ## technology-stack
 - frontend - react, react-router-dom
 - backend - spring boot (REST API)
 - UI-Framework - Tailwind CSS
 - Database
+
 
 ### Phase 1 - Database
 - with chatGPT I have created a java spring-boot backend with 
@@ -33,23 +35,28 @@
     (this ist the next step so that the connection to the backend can be 
     established and the data can be collected cleanly)
 
-### Phase 3 - Integration & Testing
 
+### Phase 3 - Integration & Testing
+- check api endpoints with postman
+- test some posible userinput
 
 ### Phase 4 - Documentation
 
 
 #### setup frontend
+- a wired error in nodeModules/vite/dist/node/chunks/dep-DZ2tZksn.js 
+    (replace `const hash = crypto.hash('sha256', 'test', 'hex');` with 
+    this: `const h$2 = crypto.createHash('sha256').update('test').digest('hex');`)
 
-- a stupid error in nodeModules/vite/dist/node/chunks/dep-DZ2tZksn.js (replace `const hash = crypto.hash('sha256', 'test', 'hex');` with this: `const h$2 = crypto.createHash('sha256').update('test').digest('hex');`)
 - I found this solution here: https://blog.ni18.in/crypto-hash-is-not-a-function-error-in-javascript/
+
 
 - go to frontend `cd frontend`
 - start frontend `npm run dev`
 
 
 #### setup backend
-- mit ChatGPT Schritt-fürSchritt Anleitung
+- mit ChatGPT created step-by-step instruction for install and implement Java spring-boot and VScode addons
 
 - to run backend, go to `cd backend && mvn spring-boot:run`
 
@@ -58,14 +65,14 @@
     I will definitely continue to work on it even if the 24 hour challenge is then over
 
 APIs
-- alle Benutzer abrufen 
+- get all users
 `GET http://localhost:8080/api/users`
 
-- neuen Benutzer erstellen (username, email, role)
+- create new user (username, email, role)
 `POST http://localhost:8080/api/users`
 
-- alle events abrufen
+- get all events
 `GET http://localhost:8080/api/events`
 
-- neue events erstelen (title, description, date, location, maxParticipants, organizer)
+- create new events (title, description, date, location, maxParticipants, organizer)
 `POST http://localhost:8080/api/events`
