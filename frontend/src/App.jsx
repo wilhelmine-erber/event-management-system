@@ -1,16 +1,19 @@
 
 import './App.css'
-import Login from './components/Login'
+import EventList from './components/EventList'
+import Header from './components/Header'
 
 function App() {
 
 
   return (
     <>
-      <Login />
-      <div>
-        <h1 className='text-3xl font-bold m-4'>Event Management Challenge</h1>
-      </div>
+     
+      <Header />
+
+      <main className='h-screen my-8 flex gap-8'>
+        <EventList />
+      </main>
     </>
   )
 }

@@ -1,4 +1,4 @@
-# event-management-system
+# event-management-challenge
 - react web app (frontend)
 - spring boot (backend)
 
