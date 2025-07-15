@@ -12,4 +12,9 @@ Prompt: 'Erkläre mir kurz und einfach die Grundlagen zu flutter, Vorteile und N
 
 
 Da ich leider dahingehen noch keine Erfarung habe:
-Prompt: 'Erstelle mir eine Schritt für Schritt Anleitung um ....
+Prompt: 'Erstelle mir eine Schritt für Schritt Anleitung um ein Backend mit Java spring-boot zu erstellen, dabei soll Spring Web, Spring Data JPA, h2 Database und folgende JPA Entities enthalten sein: User Entity:
+●​ id, username, email, role (ORGANIZER/PARTICIPANT)
+Event Entity:
+●​ id, title, description, date, location, maxParticipants, organizerId
+EventRegistration Entity:
+●​ id, userId, eventId, registrationDate'

@@ -51,8 +51,26 @@
 - I found this solution here: https://blog.ni18.in/crypto-hash-is-not-a-function-error-in-javascript/
 
 
-- go to frontend `cd frontend`
-- start frontend `npm run dev`
+Projectstructur
+
+├── src
+    ├─── assets
+    ├─── components
+    ├─── services
+
+
+#### Installation
+```bash
+git clone https://...
+cd event-management-system
+cd frontend
+npm install
+```
+
+#### Start Frontend
+```bash 
+npm run dev
+```
 
 
 #### setup backend

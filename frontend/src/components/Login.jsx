@@ -40,7 +40,7 @@ export default function Login() {
     return (
         <div className="mx-auto mt-16 w-full max-w-sm rounded-2xl bg-white p-8 shadow-xl">
             {/* only for TEST */}
-            <a className="link link-error text-red-400" onClick={() => navigate('/')}>HOME</a>
+            <button className="link link-error text-red-400" onClick={() => navigate('/')}>HOME</button>
 
             <h2 className='text-2xl font-semibold my-4'>{!isRegister ? 'Login' : 'Register'} Form</h2>
 
