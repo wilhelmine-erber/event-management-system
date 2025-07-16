@@ -21,3 +21,25 @@ EventRegistration Entity:
 
 
 Prompt: 'wo trage ich die CORS konfiguration ein in einen java spring-boot backend?'
+
+Prompt: 'wo kann ich mit der H2 Database in java sprin-boot daten mocken, zeige mir wo ich sie in einem projekt eintrage.'
+Ausgabe: stellt testevents zur verfügung damit im frontend zwei Test-events angezeigt werden
+```sql
+-- Benutzer mit Rolle ORGANIZER anlegen
+INSERT INTO app_user (id, username, email, role)
+VALUES (1, 'max', 'max@example.com', 'ORGANIZER');
+
+INSERT INTO app_user (id, username, email, role)
+VALUES (2, 'anna', 'anna@example.com', 'ORGANIZER');
+
+-- Events mit Bezug auf die Organizer (User)
+INSERT INTO event (title, description, date, location, max_participants, organizer_id)
+VALUES ('Tech Night', 'Vorträge & Networking', '2025-08-10', 'Berlin', 100, 1);
+
+INSERT INTO event (title, description, date, location, max_participants, organizer_id)
+VALUES ('Code Camp', 'Hands-on Coding für Einsteiger', '2025-09-15', 'Hamburg', 50, 2);
+
+```
+
+Bei Fehlermeldungen habe ich auch explizit in chatGPT nachgefragt, da dies mein erstes sprin-boot projekt ist.
+Allgemeine Verständnissfragen wie man React-frontend mit Backend in sprin-boot verbinden kann.

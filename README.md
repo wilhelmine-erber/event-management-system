@@ -30,7 +30,7 @@
 
 
 > what is still missing:
-- api integration
+- complete api integration
 - state management, i would use useContext because I have already used it 
     (this ist the next step so that the connection to the backend can be 
     established and the data can be collected cleanly)
@@ -38,7 +38,7 @@
 
 ### Phase 3 - Integration & Testing
 - check api endpoints with postman
-- test some posible userinput
+- test some possible userinput
 
 ### Phase 4 - Documentation
 
@@ -52,12 +52,12 @@
 
 
 Projectstructur
-
+```
 ├── src
     ├─── assets
     ├─── components
     ├─── services
-
+```
 
 #### Installation
 ```bash
@@ -76,11 +76,17 @@ npm run dev
 #### setup backend
 - mit ChatGPT created step-by-step instruction for install and implement Java spring-boot and VScode addons
 
-- to run backend, go to `cd backend && mvn spring-boot:run`
+#### Start Backend
+```bash
+cd backend
+mvn spring-boot:run
+```
+
 
 - I have checked api-endpoints with postman, it works but unfortunately I had not completely 
     concentrated on the connection of frontend and backend, which is why this is still missing, 
-    I will definitely continue to work on it even if the 24 hour challenge is then over
+    only GET all Events work fpr now.
+    I will definitely continue to work on it even if the 24 hour challenge is then over.
 
 APIs
 - get all users
